@@ -1,4 +1,5 @@
 using System.Data;
+using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DropSimulator
@@ -52,7 +53,7 @@ namespace DropSimulator
             }
 
             var lines = drops.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-
+            ProgressBar.Value = 0;
             ProgressBar.Maximum = lines.Length;
 
             foreach (var line in lines)
@@ -102,14 +103,15 @@ namespace DropSimulator
         private void BeginSimulation()
         {
             ProgressBar.Value = 0;
-            OutputTextBox.Clear();
+            var sb = new StringBuilder();
             ProgressBar.Maximum = DropInfoList.Count * SampleSize;
 
-            List<string> droppedItems = new List<string>();
+            var droppedItems = new List<string>();
 
-            foreach (DropInfo drop in DropInfoList)
+            foreach (var drop in DropInfoList)
             {
                 if (drop == null) continue;
+
                 for (int i = 0; i < SampleSize; i++)
                 {
                     if (Random.Next(drop.Chance) == 0)
@@ -120,18 +122,21 @@ namespace DropSimulator
                 }
             }
 
-            CountRepeatedValues(droppedItems);
+            var countDict = new Dictionary<string, int>();
+            foreach (var item in droppedItems)
+            {
+                if (!countDict.ContainsKey(item))
+                    countDict[item] = 0;
+                countDict[item]++;
+            }
+
+            foreach (var kvp in countDict)
+            {
+                sb.AppendLine(kvp.Key + "\t" + kvp.Value);
+            }
+
+            OutputTextBox.Text = sb.ToString();
         }
         #endregion
-
-        void CountRepeatedValues(List<string> stringList)
-        {
-            var groupedStrings = stringList.GroupBy(s => s);
-
-            foreach (var group in groupedStrings)
-            {
-                OutputTextBox.Text += (group.Key + "\t" + group.Count()) + Environment.NewLine;
-            }
-        }
     }
 }

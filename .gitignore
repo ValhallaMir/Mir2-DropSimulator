@@ -1,0 +1,13 @@
+
+obj/Debug/net7.0-windows/refint/DropSimulator.dll
+obj/Debug/net7.0-windows/ref/DropSimulator.dll
+obj/Debug/net7.0-windows/DropSimulator.pdb
+obj/Debug/net7.0-windows/DropSimulator.dll
+bin/Debug/net7.0-windows/DropSimulator.pdb
+bin/Debug/net7.0-windows/DropSimulator.dll
+.vs/DropSimulator/v17/.suo
+.vs/DropSimulator/FileContentIndex/4afc1273-771f-476b-ba5e-b018f288fb9d.vsidx
+.vs/DropSimulator/FileContentIndex/1ee4b760-09a4-49c4-b5fa-27c161e34b2a.vsidx
+*.dll
+*.pdb
+*.vsidx
