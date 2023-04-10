@@ -21,7 +21,6 @@ namespace DropSimulator
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            ProgressBar.Value = 0;
             SampleSizeLabel.Text = $"Sample Size : {SampleSize}";
         }
         #endregion
@@ -53,8 +52,6 @@ namespace DropSimulator
             }
 
             var lines = drops.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
-            ProgressBar.Value = 0;
-            ProgressBar.Maximum = lines.Length;
 
             foreach (var line in lines)
             {
@@ -62,7 +59,6 @@ namespace DropSimulator
                 DropInfo Drop = DropInfo.FromLine(line);
                 if (Drop == null) continue;
                 DropInfoList.Add(Drop);
-                ProgressBar.Value++;
             }
         }
         #endregion
@@ -102,9 +98,7 @@ namespace DropSimulator
         }
         private void BeginSimulation()
         {
-            ProgressBar.Value = 0;
             var sb = new StringBuilder();
-            ProgressBar.Maximum = DropInfoList.Count * SampleSize;
 
             var droppedItems = new List<string>();
 
@@ -118,7 +112,6 @@ namespace DropSimulator
                     {
                         droppedItems.Add(drop.Name);
                     }
-                    ProgressBar.Value++;
                 }
             }
 

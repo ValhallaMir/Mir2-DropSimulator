@@ -35,7 +35,6 @@
             SampleSizeLabel = new ToolStripStatusLabel();
             toolStripStatusLabel2 = new ToolStripStatusLabel();
             SelectedFileLabel = new ToolStripStatusLabel();
-            ProgressBar = new ToolStripProgressBar();
             MainSplitContainer = new SplitContainer();
             OutputTextBox = new TextBox();
             TopStrip = new MenuStrip();
@@ -75,7 +74,7 @@
             // 
             // BottomStrip
             // 
-            BottomStrip.Items.AddRange(new ToolStripItem[] { SampleSizeLabel, toolStripStatusLabel2, SelectedFileLabel, ProgressBar });
+            BottomStrip.Items.AddRange(new ToolStripItem[] { SampleSizeLabel, toolStripStatusLabel2, SelectedFileLabel });
             BottomStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             BottomStrip.Location = new Point(0, 364);
             BottomStrip.Name = "BottomStrip";
@@ -101,16 +100,6 @@
             SelectedFileLabel.Name = "SelectedFileLabel";
             SelectedFileLabel.Size = new Size(78, 17);
             SelectedFileLabel.Text = "Selected File :";
-            // 
-            // ProgressBar
-            // 
-            ProgressBar.Alignment = ToolStripItemAlignment.Right;
-            ProgressBar.Name = "ProgressBar";
-            ProgressBar.RightToLeft = RightToLeft.No;
-            ProgressBar.Size = new Size(200, 16);
-            ProgressBar.Step = 1;
-            ProgressBar.Style = ProgressBarStyle.Continuous;
-            ProgressBar.Value = 50;
             // 
             // MainSplitContainer
             // 
@@ -232,7 +221,6 @@
         private TextBox OutputTextBox;
         private StatusStrip BottomStrip;
         private ToolStripStatusLabel SelectedFileLabel;
-        private ToolStripProgressBar ProgressBar;
         private ToolStripStatusLabel SampleSizeLabel;
         private ToolStripStatusLabel toolStripStatusLabel2;
     }
