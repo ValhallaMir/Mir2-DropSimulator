@@ -11,3 +11,7 @@ bin/Debug/net7.0-windows/DropSimulator.dll
 *.dll
 *.pdb
 *.vsidx
+.vs/ProjectEvaluation/dropsimulator.projects.v6.1
+.vs/ProjectEvaluation/dropsimulator.metadata.v6.1
+.vs/DropSimulator/v17/.suo
+.vs/DropSimulator/v17/.futdcache.v2
